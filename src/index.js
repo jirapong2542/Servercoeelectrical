@@ -15,12 +15,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const https = require('https');
-const fs = require('fs');
-const options = {
-    key: fs.readFileSync(__dirname + '/key.pem'),
-    cert: fs.readFileSync(__dirname + '/cert.pem')
-};
+// const https = require('https');
+// const fs = require('fs');
+// const options = {
+//     key: fs.readFileSync(__dirname + '/key.pem'),
+//     cert: fs.readFileSync(__dirname + '/cert.pem')
+// };
 
 let PORT = process.env.PORT || 5000;
 
@@ -630,6 +630,11 @@ client1.on('message', (topic, message) => {
 
 });
 
-https.createServer(options, app).listen(PORT, () => {
-    console.log(`Listening at https://localhost:5000`);
+// https.createServer(options, app).listen(PORT, () => {
+//     console.log(`Listening at https://localhost:5000`);
+// });
+
+app.listen(PORT, () => {
+    console.log(`สำเร็จ`);
+    console.log(`Listening at http://localhost:` + PORT);
 });
